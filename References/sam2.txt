@@ -1,0 +1,52 @@
+New Features:
+📁 Folder Processing:
+
+load_and_process_folder() - Processes all pcap files in a directory
+Supports .pcap, .pcapng, and .cap file extensions
+Automatically combines data from multiple files
+
+🔧 Flexible Usage Options:
+python# Option 1: Process entire folder
+features, labels = classifier.load_and_process_folder("./pcap_files")
+
+# Option 2: Limit number of files (for testing)
+features, labels = classifier.load_and_process_folder("./pcap_files", file_limit=5)
+
+# Option 3: Single file processing still available
+features, labels = classifier.load_and_process_pcap("./pcap_files/specific_file.pcap")
+📊 Utility Functions:
+
+list_pcap_files() - Lists all pcap files in a folder
+get_file_info() - Shows file sizes and counts
+
+How to Use:
+
+Set your folder path:
+
+pythonpcap_folder = "./pcap_files"  # Your folder path
+# Examples:
+# pcap_folder = "/home/user/network_data"  # Linux
+# pcap_folder = r"C:\NetworkCaptures"     # Windows
+
+Place your files:
+
+Put all your .pcap and .pcapng files in the specified folder
+The script will automatically find and process all supported files
+
+
+Run the analysis:
+
+The script processes all files, combines the data, and trains the model
+Progress is shown for each file being processed
+
+
+
+Benefits:
+
+Batch Processing: Handle multiple capture files at once
+Better Training Data: More diverse packets from multiple captures
+Error Handling: Skips problematic files and continues processing
+Progress Tracking: Shows which files are being processed
+Memory Efficient: Processes files sequentially
+
+Just update the pcap_folder variable to point to your directory containing the pcap files, and the script will handle the rest!RetryClaude does not have the ability to run the code it generates yet.

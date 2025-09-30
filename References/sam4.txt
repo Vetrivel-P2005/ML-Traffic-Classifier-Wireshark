@@ -1,0 +1,59 @@
+ Quick Start - Copy & Run These:
+python# 1. Classify packets from a NEW pcap file
+from scapy.all import rdpcap
+
+# Load new pcap file
+new_packets = rdpcap("path/to/your/new_file.pcap")
+
+# Classify first 10 packets
+for i, packet in enumerate(new_packets[:10]):
+    predicted_class, confidence = classifier.predict_packet_class(packet)
+    print(f"Packet {i}: {predicted_class} (confidence: {confidence:.3f})")
+python# 2. Create and classify synthetic packets
+from scapy.all import IP, TCP, UDP
+
+# Test HTTP traffic
+http_packet = IP(dst="192.168.1.1")/TCP(dport=80)
+pred_class, confidence = classifier.predict_packet_class(http_packet)
+print(f"HTTP: {pred_class} ({confidence:.3f})")
+
+# Test DNS traffic  
+dns_packet = IP(dst="8.8.8.8")/UDP(dport=53)
+pred_class, confidence = classifier.predict_packet_class(dns_packet)
+print(f"DNS: {pred_class} ({confidence:.3f})")
+python# 3. Live packet capture (requires admin privileges)
+from scapy.all import sniff
+
+def classify_live(packet):
+    pred_class, confidence = classifier.predict_packet_class(packet)
+    print(f"Live: {pred_class} ({confidence:.3f})")
+
+# Capture 20 packets
+sniff(prn=classify_live, count=20)
+📊 Detailed Analysis Functions:
+The artifact above contains 5 comprehensive functions:
+
+classify_new_pcap_file() - Batch process entire pcap files
+classify_live_packets() - Real-time network monitoring
+classify_packet_examples() - Test with synthetic packets
+detailed_packet_analysis() - Complete analysis with statistics
+monitor_specific_traffic() - Alert for specific traffic types
+
+🎯 Most Common Use Cases:
+For Testing:
+python# Test your model with a new pcap file
+results = classify_new_pcap_file(classifier, "E:/pcap/test_traffic.pcap")
+For Monitoring:
+python# Monitor for web traffic with high confidence
+monitor_specific_traffic(classifier, target_class='web_traffic', min_confidence=0.8)
+For Analysis:
+python# Get detailed breakdown of traffic types
+analysis_df = detailed_packet_analysis(classifier, "E:/pcap/suspicious_traffic.pcap")
+🔧 Requirements for Live Capture:
+For real-time packet capture, you'll need:
+
+Windows: Run as Administrator
+Linux/Mac: Run with sudo
+Alternative: Use pre-captured pcap files for testing
+
+Which approach would you like to try first? I can help you set up any of these methods!RetryClaude does not have the ability to run the code it generates yet.Claude can make mistakes. Please double-check responses.

@@ -1,0 +1,55 @@
+Key Features:
+Feature Extraction:
+
+Packet length, IP header fields (TTL, flags, protocol)
+Port numbers (source/destination)
+Protocol-specific features (TCP flags, window size, UDP length)
+Binary indicators for protocol types
+
+Classification Categories:
+
+Web traffic (HTTP/HTTPS)
+Email protocols
+DNS queries
+Database connections
+Remote access (SSH/Telnet)
+File transfer (FTP)
+Network management (SNMP, DHCP, NTP)
+ICMP traffic
+Other TCP/UDP traffic
+
+Machine Learning Pipeline:
+
+Random Forest classifier for robust performance
+Feature scaling and label encoding
+Train/test split with stratification
+Comprehensive evaluation metrics
+
+How to Use:
+
+Install Dependencies:
+
+bashpip install scapy scikit-learn pandas matplotlib seaborn
+
+Export Data from Wireshark:
+
+Open your network capture in Wireshark
+Go to File → Export → Save as pcap/pcapng format
+
+
+Run Classification:
+
+Update the pcap_file variable with your file path
+Run the script to train and evaluate the model
+
+
+
+Model Capabilities:
+
+Automatic feature extraction from raw packet data
+Multi-class classification with confidence scores
+Feature importance analysis to understand key indicators
+Visualization of results and model performance
+Real-time prediction for new packets
+
+The model automatically handles different protocol types and extracts relevant features for each. It's designed to be extensible - you can easily add new classification categories or features based on your specific network analysis needs.
